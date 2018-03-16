@@ -7,19 +7,11 @@ export default class CryptoList extends React.Component {
     cryptosList: []
   }
 
-//   componentDidMount() {
-//     axios.get(`https://jsonplaceholder.typicode.com/users`)
-//       .then(res => {
-//         const persons = res.data;
-//         console.log(persons)
-//         this.setState(persons);
-//     })
-//   }
-
- hello = () => {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+  componentDidMount() {
+    axios.get(`https://cex.io/api/currency_limits`)
       .then(res => {
-        const cryptosList = res.data;
+        console.log(res.data.data.pairs);
+        const cryptosList = res.data.data.pairs;
         this.setState({cryptosList});
     })
   }
@@ -27,12 +19,10 @@ export default class CryptoList extends React.Component {
   render() {
     return (
     <div>
-        <button onClick={this.hello}>click me!</button>
-        <ul>
-            { this.state.cryptosList.map(crypto => <li>{crypto.name}</li>)}
-        </ul>
-
-      </div>
+        <div className="CryptoListComponent">
+            {this.state.cryptosList.map(crypto => <div className="crypto" >{crypto.symbol1} Currency: {crypto.symbol2}</div>)}
+        </div>
+    </div>
     )
   }
 }
