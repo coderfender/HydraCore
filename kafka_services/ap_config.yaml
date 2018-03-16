@@ -1,0 +1,6 @@
+---
+cex.io: "https://cex.io/api/currency_limits"
+# Cex. IO API
+---
+coin.market.cap: "https://api.coinmarketcap.com/v1/ticker/"
+#Coin Market Cap

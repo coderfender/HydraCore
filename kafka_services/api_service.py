@@ -1,26 +1,33 @@
-import time
-import requests
 import json
 import urllib2
 from kafka import SimpleProducer, KafkaClient
-from kafka import KafkaProducer
 from datetime import datetime
 from time import sleep
-
+import yaml
 
 kafka = KafkaClient("localhost:9093")
 producer = SimpleProducer(kafka)
 
-topic = 'cex.io'
 
-def send_message(api_name=None):
-    req=urllib2.Request("https://cex.io/api/currency_limits",headers={'User-Agent' : "Magic Browser"})
-    data = json.loads(urllib2.urlopen(req).read())
-    return str(data)
+def get_response(api):
+    try:
+        req = urllib2.Request(api,headers={"User-Agent":"Magic Browser"})
+        data = json.loads(urllib2.urlopen(req).read())
+        return str(data)
+    except Exception as e:
+        print e
 
-#
 if __name__=="__main__":
+
+    def lowda1():
+        stream = open("ap_config.yaml","r")
+        yaml_obj = yaml.load_all(stream)
+        for config_obj in yaml_obj:
+            for key,val in config_obj.items():
+                return key,val
+
     while True:
-        print "Sending Message!"
-        producer.send_messages("cex.io",send_message())
+        key,val = lowda1()
+        print "Publishing messages for ",key
+        producer.send_messages(key,get_response(val))
         sleep(5)
