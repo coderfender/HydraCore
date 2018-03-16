@@ -7,6 +7,7 @@ public class CurrencyObject {
     String type;
     String price;
     String curr;
+    String time;
 
     public String getExchangeName() {
         return exchangeName;
@@ -40,18 +41,17 @@ public class CurrencyObject {
         this.curr = curr;
     }
 
-    public Document getDocument() {
-        return new Document().append("exchangeName", exchangeName).append("type", type).append("price", price).
-                append("curr", curr);
+    public String getTime() {
+        return time;
     }
 
-    @Override
-    public String toString() {
-        return "CurrencyObject{" +
-                "exchangeName='" + exchangeName + '\'' +
-                ", type='" + type + '\'' +
-                ", price='" + price + '\'' +
-                ", curr='" + curr + '\'' +
-                '}';
+    public void setTime(String time) {
+        this.time = time;
     }
+
+    public Document getDocument() {
+        return new Document().append("exchangeName", exchangeName).append("type", type).append("price", price).
+                append("curr", curr).append("time",time);
+    }
+
 }
