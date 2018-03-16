@@ -1,13 +1,29 @@
 package com.hydra.restservices.models.cex.io;
 
 import org.bson.Document;
+import org.springframework.data.annotation.Id;
 
+@org.springframework.data.mongodb.core.mapping.Document(collection = "exchange")
 public class CurrencyObject {
+/*
+    @Id
+    String id;
+*/
     String exchangeName;
     String type;
     String price;
     String curr;
     String time;
+
+/*
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+*/
 
     public String getExchangeName() {
         return exchangeName;
@@ -47,11 +63,6 @@ public class CurrencyObject {
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public Document getDocument() {
-        return new Document().append("exchangeName", exchangeName).append("type", type).append("price", price).
-                append("curr", curr).append("time",time);
     }
 
 }

@@ -52,7 +52,6 @@ public class HydraConsumer {
                     dataObject.setExchangeName(exchangeName);
                     dataObject.setType(record.key());
                     System.out.println("writing this into \t" + dataObject.toString());
-                    collection.insertOne(dataObject.getDocument());
                 }
 
             } catch (Exception e) {
