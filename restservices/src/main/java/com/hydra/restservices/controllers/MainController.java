@@ -21,7 +21,7 @@ public class MainController {
 
 
     @RequestMapping(value = "/{exchangeId}/{coinId}", method = RequestMethod.GET)
-    public Object getCoinPriceInAnExchange(@PathVariable String exchangeId,@PathVariable String coinId) {
+    public Object getCoinPriceInAnExchange(@PathVariable String exchangeId,@PathVariable String coinId){
         return null;
     }
 
