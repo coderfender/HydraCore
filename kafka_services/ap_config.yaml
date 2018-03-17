@@ -5,6 +5,8 @@
 # Cex. IO API
 ---
   coin.market.cap: "https://api.coinmarketcap.com/v1/ticker/"
+  # Gives results of all the BTC in one Call
 # Coin Market Cap
 ---
   gdax.api: "https://api.gdax.com/products/{0}-USD/ticker"
+  # 0- Crypto currency such as BTC , ETH, XTC etc

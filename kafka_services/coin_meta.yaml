@@ -1,9 +1,8 @@
 ---
-  bitcoin:"BTC"
+  bitcoin: "BTC"
 ---
-  etherum:"ETH"
+  etherum: "ETH"
 ---
-  ripple:"XRP"
+  ripple: "XRP"
 ---
-  litecoin:"LTC"
-  
+  litecoin: "LTC"
